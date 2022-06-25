@@ -1,0 +1,39 @@
+{
+ "properties": {
+  "displayName": "asr_policy",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "to check if ASR is applied to the environment",
+  "metadata": {
+   "category": "policy_definitions",
+   "createdBy": "cd20f354-f2c8-4405-9cb7-8dac688c26f2",
+   "createdOn": "2022-06-25T04:31:57.6875903Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "allowedLocations": {
+    "type": "Array",
+    "metadata": {
+     "displayName": "Allowed locations",
+     "description": "The list of allowed locations for resources.",
+     "strongType": "location"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "not": {
+     "field": "location",
+     "in": "[parameters('allowedLocations')]"
+    }
+   },
+   "then": {
+    "effect": "audit"
+   }
+  }
+ },
+ "id": "/subscriptions/f42da444-72a3-467f-ae16-64e8f264e4dc/providers/Microsoft.Authorization/policyDefinitions/01cd36c3-505e-4111-8bb4-a7839850a08a",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "01cd36c3-505e-4111-8bb4-a7839850a08a"
+}
